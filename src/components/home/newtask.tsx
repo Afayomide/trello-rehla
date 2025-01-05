@@ -46,7 +46,6 @@ const NewTask: React.FC = () => {
     tag_bg: bgColor,
     tag_color: color,
   });
-  console.log(task);
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement| HTMLSelectElement>
   ) => {
@@ -166,7 +165,7 @@ const NewTask: React.FC = () => {
             id="description"
             onChange={handleChange}
             name="description"
-            rows={4} // Adjust the number of rows as needed
+            rows={4} 
           />
         </div>
 

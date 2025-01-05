@@ -60,6 +60,7 @@ const Tasks = () => {
   const onDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
     if (!destination) return;
+    console.log(destination)
 
     const startList = data.lists[source.droppableId];
     const endList = data.lists[destination.droppableId];
@@ -70,7 +71,7 @@ const Tasks = () => {
 
     setData({ ...data });
 
-    axios.put(`http://localhost:4000/tasks/${draggableId}`, {
+    axios.put(`${import.meta.env.VITE_API_URL}/tasks/${draggableId}`, {
       column_id: destination.droppableId,
       position: destination.index,
       
