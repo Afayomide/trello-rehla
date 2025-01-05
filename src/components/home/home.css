@@ -69,6 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: .3rem 0;
 }
 .board-header {
   font-weight: bold;
@@ -78,7 +79,6 @@
 /* style for task */
 .task-card {
   border: black solid 2px;
-  border-radius: 0.5rem;
   padding: 0 1rem;
   padding-bottom: 0.5rem;
   margin-top: 1rem;
@@ -98,7 +98,6 @@
   right: 0;
   text-align: right;
   background-color: red;
-  border-top-right-radius: 0.25rem;
   margin: 0;
   padding: .2rem .5rem;
   width: 30%;
@@ -128,13 +127,14 @@
   margin: 0 .2rem;
 }
 .task-form-container {
+  z-index: 1000;
   position: absolute;
   padding: 2rem 1rem;
   top: 10vh;
   left: 0;
   right: 0;
   width: 50vw;
-  margin: auto;
+  margin-bottom: auto;
   display: flex;
   align-items: center;
   min-height: 80vh;
@@ -179,7 +179,7 @@ pointer-events: auto;
 .task-input {
   margin: 1rem 0;
 }
-.task-input input {
+.task-input input, select{
   border-radius: 0.5rem;
   height: 1.5rem;
   text-decoration: none;
@@ -198,7 +198,7 @@ pointer-events: auto;
 
 @media (max-width: 900px) {
   .task-form-container {
-    width: 90vw;
+    width: 85vw;
     margin: auto;
   }
   .list{

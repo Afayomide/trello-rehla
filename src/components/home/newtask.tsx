@@ -3,7 +3,7 @@ import { useModal } from "../globalContext";
 import { IoCloseCircle } from "react-icons/io5";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { SketchPicker} from "react-color";
+import { SketchPicker } from "react-color";
 
 interface TaskInput {
   title: string;
@@ -47,7 +47,9 @@ const NewTask: React.FC = () => {
     tag_color: color,
   });
   console.log(task);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement| HTMLSelectElement>
+  ) => {
     const { name, value } = event.target;
     setTask((prevState) => ({
       ...prevState,
@@ -113,30 +115,42 @@ const NewTask: React.FC = () => {
         <div className="task-input">
           <label htmlFor="tag">Tag</label>
           <br />
-          <input
-            placeholder="One word that summarizes this task e.g shopping, exam"
+          <select
             id="tag"
             name="tag"
             onChange={handleChange}
             style={{ backgroundColor: bgColor, color: color }}
-          />
+          >
+            <option value="">Select a tag</option>
+            <option value="shopping">Shopping</option>
+            <option value="exam">Exam</option>
+            <option value="meeting">Meeting</option>
+            <option value="project">Project</option>
+          </select>
           <div className="color-pickers">
             <div className="custom-picker">
               <p> tag background color </p>
-             <SketchPicker className="color-picker" color={bgColor} onChange={handleBgColorChange} />
+              <SketchPicker
+                className="color-picker"
+                color={bgColor}
+                onChange={handleBgColorChange}
+              />
             </div>
             <div className="custom-picker">
               <p>tag font color</p>
-              <SketchPicker className="color-picker" color={color} onChange={handleColorChange} />
+              <SketchPicker
+                className="color-picker"
+                color={color}
+                onChange={handleColorChange}
+              />
             </div>
-           
           </div>
         </div>
         <div className="task-input">
           <label htmlFor="title">Title</label>
           <br />
           <input
-          className="title"
+            className="title"
             placeholder="Enter what the task is about, e.g shopping for xmas"
             id="title"
             name="title"
@@ -146,14 +160,16 @@ const NewTask: React.FC = () => {
         <div className="task-input">
           <label htmlFor="description">Description</label>
           <br />
-          <input
-          className="task-description"
-            placeholder="Go all in and describe what you want to shop for e.g your shoppng list, e.t.c."
+          <textarea
+            className="task-description"
+            placeholder="Go all in and describe what you want to shop for e.g your shopping list, etc."
             id="description"
             onChange={handleChange}
             name="description"
+            rows={4} // Adjust the number of rows as needed
           />
         </div>
+
         <button onClick={handleSubmit}>Submit</button>
       </form>
     </div>

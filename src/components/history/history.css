@@ -1,0 +1,22 @@
+.task-history{
+    padding: 2rem 5rem;
+}
+.task-history h2{
+    font-size: 4rem;
+    margin: 0;
+}
+.task-history  h3{
+    font-size: 2rem;
+}
+
+@media (max-width: 500px) {
+    .task-history{
+        padding: .5rem 1rem;
+    }
+    .task-history h2{
+        font-size: 3rem;
+    }
+    .task-history  h3{
+        font-size: 2rem;
+    }
+}
