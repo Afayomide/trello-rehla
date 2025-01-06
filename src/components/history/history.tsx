@@ -3,6 +3,7 @@ import "./history.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 interface TaskHistoryItem {
   id: number;
@@ -68,8 +69,16 @@ const TaskHistory: React.FC = () => {
   const groupedHistory = groupByDate(history);
 
   return (
+    <div>
+      <nav className="home-nav">
+      <Link className="h1" to="/">
+          <h1>Trello Test</h1>
+        </Link>
+        
+      </nav>
     <div className="task-history">
-      <h2>Task History</h2>
+      
+      <h2>Task Logs</h2>
       {loading ? (
         <p>Loading...</p>
       ) : history.length > 0 ? (
@@ -114,6 +123,7 @@ const TaskHistory: React.FC = () => {
       ) : (
         <p>No task history found.</p>
       )}
+    </div>
     </div>
   );
 };

@@ -105,6 +105,7 @@ const NewTask: React.FC = () => {
   };
 
   return (
+    <div className="new-task-container">
     <div className={`task-form-container ${isModalOpen ? "display" : ""}`}>
       <form className="task-form">
         <IoCloseCircle className="close-icon" onClick={closeModal} />
@@ -128,7 +129,7 @@ const NewTask: React.FC = () => {
           </select>
           <div className="color-pickers">
             <div className="custom-picker">
-              <p> tag background color </p>
+              <p> Pick tag background color </p>
               <SketchPicker
                 className="color-picker"
                 color={bgColor}
@@ -136,7 +137,7 @@ const NewTask: React.FC = () => {
               />
             </div>
             <div className="custom-picker">
-              <p>tag font color</p>
+              <p>Pick tag font color</p>
               <SketchPicker
                 className="color-picker"
                 color={color}
@@ -161,7 +162,7 @@ const NewTask: React.FC = () => {
           <br />
           <textarea
             className="task-description"
-            placeholder="Go all in and describe what you want to shop for e.g your shopping list, etc."
+            placeholder="Go all in and describe what your activity is all about"
             id="description"
             onChange={handleChange}
             name="description"
@@ -171,6 +172,7 @@ const NewTask: React.FC = () => {
 
         <button onClick={handleSubmit}>Submit</button>
       </form>
+    </div>
     </div>
   );
 };
